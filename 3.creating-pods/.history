@@ -1,0 +1,50 @@
+   16  kubectl
+   17  kubectl get all
+   18  kubectl run my-nginx --image=nginx:alpine
+   20  kubectl get all
+   21  kubectl delete pod my-nginx-6c79cbc966-qndx4
+   22  kubectl get all
+   23  kubectl get pods
+   24  kubectl port-forward my-nginx-6c79cbc966-f77k8 8080:80
+   25  kubectl get pods
+   27  kubectl get all
+   28  kubectl delete deployment my-nginx
+   29  kubectl get pods
+   
+    8  touch nginx.pod.yml
+    9  kubectl create -f nginx.pod.yml --dry-run
+   10  kubectl create -f nginx.pod.yml --save-config
+   11  kubectl get pods
+   12  kubectl get pod my-nginx -o yaml
+   13  kubectl describe pod my-nginx
+   14  kubectl apply -f nginx.pod.yml 
+   15  kubectl get pods
+   16  kubectl exec my-nginx -it sh
+   17  kubectl edit -f nginx.pod.yml 
+   18  kubectl delete -f nginx.pod.yml 
+   19  kubectl get pods
+
+    9  touch nginx-readiness-probe.pod.yml
+   10  kubectl apply -f nginx-readiness-probe.pod.yml 
+   13  kubectl get pods
+   14  kubectl describe pod my-nginx
+   15  kubectl exec my-nginx -it sh
+   16  kubectl get pods
+   17  kubectl get pods
+   19  kubectl describe pod my-nginx
+   20  kubectl get pods
+   21  kubectl exec my-nginx -it sh
+   22  kubectl delete pod my-nginx
+   23  kubectl get pods
+
+    9  touch busybox-liveness-probe.pod.yml
+   10  kubectl create -f busybox-liveness-probe.pod.yml --dry-run
+   11  kubectl create -f busybox-liveness-probe.pod.yml 
+   12  kubectl get pods
+   13  kubectl describe pod liveness-exec
+   14  kubectl describe pod liveness-exec
+   15  kubectl get pods
+   16  kubectl describe pod liveness-exec
+   17  kubectl describe pod liveness-exec
+   18  kubectl delete pod liveness-exec
+   21  kubectl get pods
