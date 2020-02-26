@@ -1,0 +1,29 @@
+  493  kubectl apply -f nginx.deployment.yml
+  494  kubectl get pods
+  495  kubectl port-forward my-nginx-77f7664f5f-g4jlv 8080:80
+  496  kubectl get deploy
+  498  kubectl port-forward deploy/my-nginx 8080
+  500  kubectl port-forward deploy/my-nginx 8080:80
+
+    6  kubectl run nginx-standalone --image=nginx:alpine
+    7  kubectl get pods
+    8  kubectl exec nginx-standalone-674b4685f6-zd9xm -it sh
+    3  kubectl get pods
+    4  kubectl get pod my-nginx-77f7664f5f-g4jlv -o yaml
+    5  kubectl apply -f clusterIP.service.yml --dry-run --validate
+    6  kubectl apply -f clusterIP.service.yml
+    7  kubectl get services
+    4  kubectl delete service nginx-clusterip
+    5  kubectl get all
+    
+    6  kubectl apply -f nodeport.service.yml 
+    7  kubectl get services
+    8  kubectl get pods
+    9  kubectl exec nginx-standalone-674b4685f6-zd9xm -it sh
+    
+    6  kubectl apply -f loadbalancer.service.yml --dry-run
+    7  kubectl apply -f loadbalancer.service.yml 
+    8  kubectl get services
+    9  kubectl delete service nginx-nodeport
+   10  kubectl delete service nginx-loadbalancer
+
