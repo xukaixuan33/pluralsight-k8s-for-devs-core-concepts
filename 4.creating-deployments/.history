@@ -1,0 +1,29 @@
+    9  touch nginx.deployment.yml
+   10  kubectl create -f nginx.deployment.yml --dry-run
+   11  kubectl create -f nginx.deployment.yml --save-config
+   12  kubectl get all
+   13  kubectl describe deployment my-nginx
+   14  kubectl get deploy
+   15  kubectl get deploy --show-labels
+   16  kubectl get deploy -l app=my-nginx
+   17  kubectl scale -f nginx.deployment.yml --replicas=4
+   18  kubectl get all
+   19  kubectl delete -f nginx.deployment.yml 
+   20  kubectl get all
+   21  kubectl apply -f nginx.deployment.yml 
+   22  kubectl get all
+   23  kubectl apply -f nginx.deployment.yml 
+   24  kubectl get all
+
+   29  kubectl apply -f ps-node-app-v1.deployment.yml 
+   30  kubectl get all
+   31  kubectl port-forward ps-node-app-695b5d6c68-8nt5t 8080:8080
+   33  kubectl apply -f ps-node-app-v2.deployment.yml 
+   36  kubectl get all
+   37  kubectl apply -f ps-node-app-v3.deployment.yml 
+   38  kubectl get all
+   39  kubectl get all
+   40  kubectl get all
+   41  kubectl get all
+   42  kubectl delete -f ps-node-app-v3.deployment.yml 
+   43  kubectl get all
