@@ -1,0 +1,19 @@
+    6  kubectl get configmap
+    7  kubectl get cm
+    8  kubectl create cm app-settings --from-env-file=./node-config-app/settings.config
+    9  kubectl get cm
+   10  kubectl get cm app-settings -o yaml
+   11  kubectl create -f node.deployment.yml --dry-run
+   12  kubectl create -f node.deployment.yml 
+   13  kubectl get pods
+   14  kubectl port-forward ps-node-config-app-6fb47486-z6n86 9000:9000
+   15  kubectl exec ps-node-config-app-6fb47486-z6n86 -it sh
+   16  kubectl delete -f node.deployment.yml 
+
+    9  kubectl get secret
+   10  kubectl create secret generic db-passwords --from-literal=db-password='password' --from-literal=db-root-password='password'
+   11  kubectl get secrets
+   12  kubectl create -f docker-desktop-mongo.deployment.yml --dry-run
+   13  kubectl create -f docker-desktop-mongo.deployment.yml
+   14  kubectl get pods
+   17  kubectl delete -f docker-desktop-mongo.deployment.yml

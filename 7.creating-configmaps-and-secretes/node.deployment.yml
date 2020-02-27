@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ps-node-config-app
+spec:
+  selector:
+    matchLabels:
+      app: ps-node-config-app
+  template:
+    metadata:
+      labels:
+        app: ps-node-config-app
+    spec:
+      containers:
+        - name: ps-node-config-app
+          image: ps-node-config-app:latest
+          imagePullPolicy: IfNotPresent
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 9000
+
+          volumeMounts:
+            - mountPath: /etc/config
+              name: app-settings-vol
+
+          env:
+            - name: ENEMIES
+              valueFrom:
+                  configMapKeyRef:
+                    name: app-settings
+                    key: enemies
+
+          envFrom:
+            - configMapRef:
+                name: app-settings
+
+      volumes:
+        - name: app-settings-vol
+          configMap:
+              name: app-settings
